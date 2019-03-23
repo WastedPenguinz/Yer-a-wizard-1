@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <title>@Page.Title - Yer a wizzard harry</title>
     <!--<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />-->
-    @RenderSection("Scripts", false)
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -54,7 +53,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a style="color: #efefef" class="dropdown-item" href="~/About.cshtml">About</a>
-                        <div style="background-color: rgba(0, 0, 0, 0.5); padding: 0.5px; margin: 6px;"></div>
+                        <div style="background-color: rgba(0, 0, 0, 0.5); padding: 0.5px; margin: 6px;" ></div>
                         <a style="color: #efefef" class="dropdown-item" href="~/Contact.cshtml">Contact</a>
                     </div>
                 </li>
@@ -75,6 +74,55 @@
             </center>
         </div>
     </nav>
-    @RenderBody()
 </body>
 </html>
+
+<!--
+<body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title"><a href="~/">Logo</a></p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @if (WebSecurity.IsAuthenticated) {
+                            <text>
+                                Hello, <a class="email" href="~/Account/Manage" title="Manage">@WebSecurity.CurrentUserName</a>!
+                                <form id="logoutForm" action="~/Account/Logout" method="post">
+                                    @AntiForgery.GetHtml()
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+                                </form>
+                            </text>
+                        } else {
+                            <ul>
+                                <li><a href="~/Account/Register">Register</a></li>
+                                <li><a href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        }
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li><a href="~/">Home</a></li>
+                            <li><a href="~/About">About</a></li>
+                            <li><a href="~/Contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Web Page</p>
+                </div>
+            </div>
+        </footer>
+        @RenderSection("Scripts", required: false)
+    </body>-->
