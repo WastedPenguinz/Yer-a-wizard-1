@@ -1,62 +1,80 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@Page.Title - My ASP.NET Web Page</title>
-        <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-        <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
-        <script src="~/Scripts/modernizr-2.8.3.js"></script>
-        <meta name="viewport" content="width=device-width" />
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title"><a href="~/">your logo here</a></p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @if (WebSecurity.IsAuthenticated) {
-                            <text>
-                                Hello, <a class="email" href="~/Account/Manage" title="Manage">@WebSecurity.CurrentUserName</a>!
-                                <form id="logoutForm" action="~/Account/Logout" method="post">
-                                    @AntiForgery.GetHtml()
-                                    <a href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
-                                </form>
-                            </text>
-                        } else {
-                            <ul>
-                                <li><a href="~/Account/Register">Register</a></li>
-                                <li><a href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        }
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li><a href="~/">Home</a></li>
-                            <li><a href="~/About">About</a></li>
-                            <li><a href="~/Contact">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
+<head>
+    <meta charset="utf-8" />
+    <title>@Page.Title - Yer a wizzard harry</title>
+    <!--<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />-->
+    @RenderSection("Scripts", false)
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Scripts/Layout.css" type="text/css" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Logo?</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <div class="nav-space"></div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <div class="nav-space"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="far fa-newspaper">
+                        </i>
+                        News
+                    </a>
+                </li>
+                <div class="nav-space"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-broom">
+                        </i>
+                        Forums
+                    </a>
+                </li>
+                <div class="nav-space"></div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-envelope-o">
+                            <span class="badge badge-primary"></span>
+                        </i>
+                        Info
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a style="color: #efefef" class="dropdown-item" href="~/About.cshtml">About</a>
+                        <div style="background-color: rgba(0, 0, 0, 0.5); padding: 0.5px; margin: 6px;"></div>
+                        <a style="color: #efefef" class="dropdown-item" href="~/Contact.cshtml">Contact</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="far fa-envelope">
+                            <span class="badge badge-info">#</span>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+            <center>
+                <button id="loginbtn" onclick="window.location.href = 'Login.cshtml';" class="btn-primary">Login</button>
+                &nbsp; &nbsp;
+                <button id="registerbtn" onclick="window.location.href = 'Register.cshtml';" class="btn-secondary">Register</button>
+            </center>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET Web Page</p>
-                </div>
-            </div>
-        </footer>
-        @RenderSection("Scripts", required: false)
-    </body>
+    </nav>
+    @RenderBody()
+</body>
 </html>

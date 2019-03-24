@@ -1,4 +1,11 @@
-﻿.nav-space {
+﻿#Logo {
+    cursor: pointer;
+}
+#Logo:hover {
+    background: none;
+}
+
+.nav-space {
     padding-left: 6px;
 }
 @media only screen and (max-width: 991px) {
@@ -19,4 +26,31 @@
 .dropdown-item:hover {
     color: white;
     background-color: #2c3237;
+}
+
+#loginbtn {
+    color: #dc3545;
+    padding: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#loginbtn:hover {
+    color: #343a40;
+    border-color: #dc3545;
+}
+
+#registerbtn {
+    color: #00b1ff;
+    text-decoration: underline;
+    cursor: pointer;
+    border: none;
+    padding: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0px;
+}
+#registerbtn:hover {
+    color: #343a40;
+    background-color: #00b1ff;
+    text-decoration: none;
 }

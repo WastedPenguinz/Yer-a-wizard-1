@@ -15,7 +15,7 @@
 </head>
 <body>
     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Logo?</a>
+        <a id="Logo" class="navbar-brand" href="#">Logo?</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -68,11 +68,14 @@
                     </a>
                 </li>
             </ul>
-            <center>
-                <button id="loginbtn" onclick="window.location.href = 'Login.cshtml';" class="btn-primary">Login</button>
-                &nbsp; &nbsp;
-                <button id="registerbtn" onclick="window.location.href = 'Register.cshtml';" class="btn-secondary">Register</button>
-            </center>
+            &nbsp; &nbsp;
+            <div>
+                <center>
+                    <a id="loginbtn" onclick="window.location.href = 'Login.cshtml';" class="btn btn-outline-danger">Login</a>
+                    &nbsp; &nbsp;
+                    <a id="registerbtn" onclick="window.location.href = 'Register.cshtml';" class="btn btn-outline-danger">Register</a>
+                </center>
+            </div>
         </div>
     </nav>
     @RenderBody()
