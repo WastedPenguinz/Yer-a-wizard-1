@@ -7,12 +7,12 @@
         mail = Request.Form["mail"];
         password = Request.Form["password"];
 
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Placeholder.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
         string provider = "System.Data.SqlClient";
         Database db = Database.OpenConnectionString(connectionString, provider);
 
         // counts amount of users with a certain mail and password (0 means no user, 1 means user, > 1 means double users?)
-        var dbcountuser = "SELECT COUNT(*) AS Counter FROM [Placeholder] WHERE Mail = @0 AND Password = @1";
+        var dbcountuser = "SELECT COUNT(*) AS Counter FROM [User1] WHERE Email = @0 AND Password = @1";
         var dbcountuserquery = db.QuerySingle(dbcountuser, mail, password);
         int counter = dbcountuserquery.Counter;
         if(counter == 0)
@@ -22,7 +22,7 @@
         else
         {
             // insert code that checks role here
-            Response.Redirect("~/Placeholder");
+            Response.Redirect("~/HomePage.cshtml");
         }
     }
 }
@@ -54,7 +54,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><img src="~/Images/Naamloos.png" /></span>
                         </div>
-                        <input value="@Request.Form["mail"]" type="text" name="email" class="form-control" placeholder="Username">
+                        <input value="@Request.Form["mail"]" type="text" name="mail" class="form-control" placeholder="Email">
                     </div>
 
                     <div class="input-group form-group">

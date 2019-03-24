@@ -18,11 +18,11 @@
         {
             if(Email == ConfirmEmail)
             {
-                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Placeholder.mdf;Integrated Security=True";
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
                 string provider = "System.Data.SqlClient";
                 Database db = Database.OpenConnectionString(connectionString, provider);
 
-                var InsertUser = "INSERT INTO [Placeholder] (UsernamePlaceholder, PasswordPlaceholder, EmailPlaceholder) Values (@0, @1, @2)";
+                var InsertUser = "INSERT INTO [User1] (Username, Password, Email) Values (@0, @1, @2)";
                 db.Execute(InsertUser, Username, Password, Email);
                 Response.Redirect("~/login.cshtml");
             }
@@ -62,7 +62,7 @@
             </div>
 
             <div class="card-body">
-                <form action="~/login.cshtml" method="post">
+                <form method="post">
                     <div class="input-group form-group">
                         <input value="@Request.Form["Username"]" type="text" name="Username" class="form-control" placeholder="Username">
                     </div><br />
