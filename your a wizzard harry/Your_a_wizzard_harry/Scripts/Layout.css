@@ -65,14 +65,33 @@
     background-color: #343a40;
 }
 
-#social {
+#social-ic {
     color: white;
     background-color: #343a40;
+    font-size: 30px;
+    border-radius: 100px;
+    padding: 1.5px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
 }
-    #social:hover {
+    #social-ic:hover {
         color: #343a40;
         background-color: white;
     }
+#twitter-ic {
+    color: white;
+    background-color: #343a40;
+    font-size: 30px;
+    border-radius: 100px;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+    #twitter-ic:hover {
+        color: #343a40;
+        background-color: white;
+    }
+
 
 #socialClean {
     color: white;
