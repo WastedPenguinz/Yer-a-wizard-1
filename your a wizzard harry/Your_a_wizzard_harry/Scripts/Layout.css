@@ -1,4 +1,10 @@
-﻿#Logo {
+﻿@keyframes placeholder {
+    from {}
+    to {}
+}
+
+
+#Logo {
     cursor: pointer;
 }
 #Logo:hover {
@@ -54,3 +60,52 @@
     background-color: #00b1ff;
     text-decoration: none;
 }
+
+#footer {
+    background-color: #343a40;
+}
+
+#social {
+    color: white;
+    background-color: #343a40;
+}
+    #social:hover {
+        color: #343a40;
+        background-color: white;
+    }
+
+#socialClean {
+    color: white;
+    background-color: #343a40;
+}
+    #socialClean:hover {
+        color: white;
+        
+    }
+
+#footerTxt {
+    color: #cccccc;
+    background-color: #343a40;
+}
+    #footerTxt:hover {
+        color: #cccccc;
+        background-color: #343a40;
+    }
+
+#footerRedirect {
+    color: #999999;
+    background-color: #343a40;
+}
+    #footerRedirect:hover {
+        color: #999999;
+        background-color: #343a40;
+    }
+
+#wizard {
+    color: #cccccc;
+    background-color: #343a40;
+}
+    #wizard:hover {
+        color: #cccccc;
+        background-color: #343a40;
+    }
