@@ -70,9 +70,9 @@
     background-color: #343a40;
     font-size: 30px;
     border-radius: 100px;
-    padding: 1.5px;
-    padding-left: 7.5px;
-    padding-right: 7.5px;
+    padding: 2px;
+    padding-left: 8.875px;
+    padding-right: 8.875px;
 }
     #social-ic:hover {
         color: #343a40;
@@ -84,8 +84,8 @@
     font-size: 30px;
     border-radius: 100px;
     padding: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 7px;
+    padding-right: 7px;
 }
     #twitter-ic:hover {
         color: #343a40;
