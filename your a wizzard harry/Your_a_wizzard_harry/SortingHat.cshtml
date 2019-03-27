@@ -1,0 +1,162 @@
+﻿@{
+    Page.Title = "Title goes here";
+    //scholen
+    int gryffindorP = 0, hufflepuffP = 0, ravenclawP = 0, slytherinP = 0, questionindex = 0;
+    string answer1 = "", answer2 = "", answer3 = "", answer4 = "", question = "";
+    string housenaam = Request.Form["vraag"];
+    List<string> houses = new List<string> { "griffindor", "hufflepuff", "ravenclaw", "slytherin" };
+    string winninghouse = "";
+    int points = 0;
+    Boolean win = false;
+
+    if (Session["griffindorP"] != null)
+    {
+        gryffindorP = Convert.ToInt32(Session["griffindorP"]);
+    }
+    if (Session["hufflepuffP"] != null)
+    {
+        hufflepuffP = Convert.ToInt32(Session["hufflepuffP"]);
+    }
+    if (Session["ravenclawP"] != null)
+    {
+        ravenclawP = Convert.ToInt32(Session["ravenclawP"]);
+    }
+    if (Session["slytherinP"] != null)
+    {
+        slytherinP = Convert.ToInt32(Session["slytherinP"]);
+    }
+    if (Session["questionindex"] != null)
+    {
+        questionindex = Convert.ToInt16(Session["questionindex"]);
+    }
+    if (IsPost)
+    {
+        questionindex++;
+        if (questionindex > 4)
+        {
+            foreach (string house in houses)
+            {
+
+                switch (house)
+                {
+                    case "griffindor":
+                        points = gryffindorP;
+                        break;
+                    case "hufflepuff":
+                        points = hufflepuffP;
+                        break;
+                    case "ravenclaw":
+                        points = ravenclawP;
+                        break;
+                    case "slytherin":
+                        points = slytherinP;
+                        break;
+                }
+                if (points >= gryffindorP)
+                {
+                    if (points >= ravenclawP)
+                    {
+                        if (points >= hufflepuffP)
+                        {
+                            if (points >= slytherinP)
+                            {
+                                win = true;
+                            }
+                        }
+                    }
+
+                }
+                if (win == true)
+                {
+                    winninghouse = house;
+                }
+            }
+        }
+
+
+
+    }
+    //pakt een vraag en de antwoorden die daar bij horen
+    switch (questionindex)
+    {
+        case 1:
+            question = "vraag 1";
+            answer1 = "antwoord 1 op vraag 1";
+            answer2 = "antwoord 2 op vraag 1";
+            answer3 = "antwoord 3 op vraag 1";
+            answer4 = "antwoord 4 op vraag 1";
+            break;
+        case 2:
+            question = "vraag 2";
+            answer1 = "antwoord 1 op vraag 2";
+            answer2 = "antwoord 2 op vraag 2";
+            answer3 = "antwoord 3 op vraag 2";
+            answer4 = "antwoord 4 op vraag 2";
+            break;
+        case 3:
+            question = "vraag 3";
+            answer1 = "antwoord 1 op vraag 3";
+            answer2 = "antwoord 2 op vraag 3";
+            answer3 = "antwoord 3 op vraag 3";
+            answer4 = "antwoord 4 op vraag 3";
+            break;
+        case 4:
+            question = "vraag 4";
+            answer1 = "antwoord 1 op vraag 4";
+            answer2 = "antwoord 2 op vraag 4";
+            answer3 = "antwoord 3 op vraag 4";
+            answer4 = "antwoord 4 op vraag 4";
+            break;
+        default:
+            question = "vraag 0";
+            answer1 = "antwoord 1 op vraag 0";
+            answer2 = "antwoord 2 op vraag 0";
+            answer3 = "antwoord 3 op vraag 0";
+            answer4 = "antwoord 4 op vraag 0";
+            break;
+    }
+
+    //voegt punten toe bij het huis waar jij meer bij hoort
+    switch (housenaam)
+    {
+        case "griffindor":
+            gryffindorP++;
+            break;
+        case "hufflepuff":
+            hufflepuffP++;
+            break;
+        case "ravenclaw":
+            ravenclawP++;
+            break;
+        case "slytherin":
+            slytherinP++;
+            break;
+    }
+
+    Session["griffindorP"] = gryffindorP;
+    Session["hufflepuffP"] = hufflepuffP;
+    Session["ravenclawP"] = ravenclawP;
+    Session["slytherinP"] = slytherinP;
+    Session["questionindex"] = questionindex;
+
+
+}
+
+<div>
+    @if (questionindex < 5)
+    {
+        <h1>@question</h1>
+        <form method="post">
+            <input type="radio" name="vraag" value="griffindor">@answer1<br>@gryffindorP
+            <input type="radio" name="vraag" value="hufflepuff">@answer2<br>@hufflepuffP
+            <input type="radio" name="vraag" value="ravenclaw">@answer3<br> @ravenclawP
+            <input type="radio" name="vraag" value="slytherin">@answer4<br> @slytherinP
+            <input type="submit">
+        </form>
+    }
+    else
+    {
+        <h1>je hebt de test gedaan</h1>
+        <h1> @winninghouse </h1>
+    }
+</div>
