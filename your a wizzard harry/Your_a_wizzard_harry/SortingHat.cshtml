@@ -1,7 +1,7 @@
 ﻿@{
     Page.Title = "Title goes here";
     //scholen
-    int gryffindorP = 0, hufflepuffP = 0, ravenclawP = 0, slytherinP = 0, questionindex = 0;
+    int gryffindorP = 0, hufflepuffP = 0, ravenclawP = 0, slytherinP = 0, questionindex = 1;
     string answer1 = "", answer2 = "", answer3 = "", answer4 = "", question = "";
     string housenaam = Request.Form["vraag"];
     List<string> houses = new List<string> { "griffindor", "hufflepuff", "ravenclaw", "slytherin" };
@@ -52,6 +52,7 @@
                         points = slytherinP;
                         break;
                 }
+
                 if (points >= gryffindorP)
                 {
                     if (points >= ravenclawP)
@@ -76,46 +77,7 @@
 
 
     }
-    //pakt een vraag en de antwoorden die daar bij horen
-    switch (questionindex)
-    {
-        case 1:
-            question = "vraag 1";
-            answer1 = "antwoord 1 op vraag 1";
-            answer2 = "antwoord 2 op vraag 1";
-            answer3 = "antwoord 3 op vraag 1";
-            answer4 = "antwoord 4 op vraag 1";
-            break;
-        case 2:
-            question = "vraag 2";
-            answer1 = "antwoord 1 op vraag 2";
-            answer2 = "antwoord 2 op vraag 2";
-            answer3 = "antwoord 3 op vraag 2";
-            answer4 = "antwoord 4 op vraag 2";
-            break;
-        case 3:
-            question = "vraag 3";
-            answer1 = "antwoord 1 op vraag 3";
-            answer2 = "antwoord 2 op vraag 3";
-            answer3 = "antwoord 3 op vraag 3";
-            answer4 = "antwoord 4 op vraag 3";
-            break;
-        case 4:
-            question = "vraag 4";
-            answer1 = "antwoord 1 op vraag 4";
-            answer2 = "antwoord 2 op vraag 4";
-            answer3 = "antwoord 3 op vraag 4";
-            answer4 = "antwoord 4 op vraag 4";
-            break;
-        default:
-            question = "vraag 0";
-            answer1 = "antwoord 1 op vraag 0";
-            answer2 = "antwoord 2 op vraag 0";
-            answer3 = "antwoord 3 op vraag 0";
-            answer4 = "antwoord 4 op vraag 0";
-            break;
-    }
-
+    
     //voegt punten toe bij het huis waar jij meer bij hoort
     switch (housenaam)
     {
@@ -143,16 +105,103 @@
 }
 
 <div>
-    @if (questionindex < 5)
+    @if (questionindex < 11)
     {
-        <h1>@question</h1>
-        <form method="post">
+        
+    <form method="post">
+        @for (int i = 0; i < 10; i++)
+        {
+            //pakt een vraag en de antwoorden die daar bij horen
+            switch (questionindex)
+            {
+                case 1:
+                    question = "vraag 1";
+                    answer1 = "antwoord 1 op vraag 1";
+                    answer2 = "antwoord 2 op vraag 1";
+                    answer3 = "antwoord 3 op vraag 1";
+                    answer4 = "antwoord 4 op vraag 1";
+                    break;
+                case 2:
+                    question = "vraag 2";
+                    answer1 = "antwoord 1 op vraag 2";
+                    answer2 = "antwoord 2 op vraag 2";
+                    answer3 = "antwoord 3 op vraag 2";
+                    answer4 = "antwoord 4 op vraag 2";
+                    break;
+                case 3:
+                    question = "vraag 3";
+                    answer1 = "antwoord 1 op vraag 3";
+                    answer2 = "antwoord 2 op vraag 3";
+                    answer3 = "antwoord 3 op vraag 3";
+                    answer4 = "antwoord 4 op vraag 3";
+                    break;
+                case 4:
+                    question = "vraag 4";
+                    answer1 = "antwoord 1 op vraag 4";
+                    answer2 = "antwoord 2 op vraag 4";
+                    answer3 = "antwoord 3 op vraag 4";
+                    answer4 = "antwoord 4 op vraag 4";
+                    break;
+                case 5:
+                    question = "vraag 5";
+                    answer1 = "antwoord 1 op vraag 5";
+                    answer2 = "antwoord 2 op vraag 5";
+                    answer3 = "antwoord 3 op vraag 5";
+                    answer4 = "antwoord 4 op vraag 5";
+                    break;
+                case 6:
+                    question = "vraag 6";
+                    answer1 = "antwoord 1 op vraag 4";
+                    answer2 = "antwoord 2 op vraag 4";
+                    answer3 = "antwoord 3 op vraag 4";
+                    answer4 = "antwoord 4 op vraag 4";
+                    break;
+                case 7:
+                    question = "vraag 7";
+                    answer1 = "antwoord 1 op vraag 7";
+                    answer2 = "antwoord 2 op vraag 7";
+                    answer3 = "antwoord 3 op vraag 7";
+                    answer4 = "antwoord 4 op vraag 7";
+                    break;
+                case 8:
+                    question = "vraag 8";
+                    answer1 = "antwoord 1 op vraag 8";
+                    answer2 = "antwoord 2 op vraag 8";
+                    answer3 = "antwoord 3 op vraag 8";
+                    answer4 = "antwoord 4 op vraag 8";
+                    break;
+                case 9:
+                    question = "vraag 9";
+                    answer1 = "antwoord 1 op vraag 9";
+                    answer2 = "antwoord 2 op vraag 9";
+                    answer3 = "antwoord 3 op vraag 9";
+                    answer4 = "antwoord 4 op vraag 9";
+                    break;
+                case 10:
+                    question = "vraag 10";
+                    answer1 = "antwoord 1 op vraag 10";
+                    answer2 = "antwoord 2 op vraag 10";
+                    answer3 = "antwoord 3 op vraag 10";
+                    answer4 = "antwoord 4 op vraag 10";
+                    break;
+
+
+            }
+
+            <h1>@question</h1>
+
             <input type="radio" name="vraag" value="griffindor">@answer1<br>@gryffindorP
             <input type="radio" name="vraag" value="hufflepuff">@answer2<br>@hufflepuffP
             <input type="radio" name="vraag" value="ravenclaw">@answer3<br> @ravenclawP
             <input type="radio" name="vraag" value="slytherin">@answer4<br> @slytherinP
+            <br />
+            <br />
+            
+
+            questionindex++;
+        }
             <input type="submit">
-        </form>
+    </form>
     }
     else
     {
