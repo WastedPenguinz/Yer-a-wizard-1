@@ -41,7 +41,7 @@
     padding-right: 5px;
 }
 #loginbtn:hover {
-    color: #343a40;
+    color: white;
     border-color: #dc3545;
 }
 
@@ -55,11 +55,11 @@
     padding-right: 5px;
     margin: 0px;
 }
-#registerbtn:hover {
-    color: #343a40;
-    background-color: #00b1ff;
-    text-decoration: none;
-}
+    #registerbtn:hover {
+        color: white;
+        background-color: #00a9ff;
+        text-decoration: none;
+    }
 
 #footer {
     background-color: #343a40;
@@ -127,4 +127,13 @@
     #wizard:hover {
         color: #cccccc;
         background-color: #343a40;
+    }
+
+
+/* About Page */
+#abtBtn {
+    color: white;
+}
+
+    #abtBtn:hover {
     }
